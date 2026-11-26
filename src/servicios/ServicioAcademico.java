@@ -6,10 +6,22 @@ import interfaces.Persistible;
 public class ServicioAcademico {
 
     public void emitirDocumento(Exportable documento) {
-        // TODO [Issue #3 - Integrante 3]: Imprimir el resultado de documento.exportar() sin depender de clases concretas.
+        if (documento == null) {
+            System.out.println("No se puede emitir un documento nulo.");
+            return;
+        }
+        System.out.println(documento.exportar());
     }
 
     public void archivarDocumento(Persistible registro) {
-        // TODO [Issue #3 - Integrante 3]: Invocar registro.guardar() e imprimir registro.obtenerResumenPersistencia().
+        if (registro == null) {
+            System.out.println("No se puede archivar un registro nulo.");
+            return;
+        }
+        if (registro.guardar()) {
+            System.out.println(registro.obtenerResumenPersistencia());
+        } else {
+            System.out.println("No se pudo guardar el registro.");
+        }
     }
 }
