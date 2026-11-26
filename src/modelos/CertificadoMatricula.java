@@ -16,19 +16,17 @@ public class CertificadoMatricula implements Exportable, Persistible {
 
     @Override
     public String exportar() {
-        // TODO [Issue #2 - Integrante 2]: Retornar la representacion exportable del certificado (codigo, estudiante y periodo).
-        return "PENDIENTE_CERTIFICADO";
+        return "Certificado de Matricula [Codigo: " + codigoMatricula + ", Estudiante: " + estudiante + ", Periodo: " + periodo + "]";
     }
 
     @Override
     public boolean guardar() {
-        // TODO [Issue #2 - Integrante 2]: Imprimir confirmacion de respaldo del certificado y retornar true.
-        return false;
+        System.out.println("Respaldo del certificado de matricula " + codigoMatricula + " realizado con exito.");
+        return true;
     }
 
     @Override
     public String obtenerResumenPersistencia() {
-        // TODO [Issue #2 - Integrante 2]: Retornar un resumen corto con el codigo de matricula respaldado.
-        return "PENDIENTE_RESUMEN";
+        return "Certificado respaldado con codigo de matricula: " + codigoMatricula;
     }
 }
