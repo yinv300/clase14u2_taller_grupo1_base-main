@@ -1,3 +1,4 @@
+
 package modelos;
 
 import interfaces.Exportable;
@@ -16,19 +17,21 @@ public class ActaCalificaciones implements Exportable, Persistible {
 
     @Override
     public String exportar() {
-        // TODO [Issue #1 - Integrante 1]: Retornar un texto en formato CSV o PDF con asignatura, estudiante y notaFinal.
-        return "PENDIENTE_ACTA";
+        return asignatura + "," + estudiante + "," + notaFinal;
     }
 
     @Override
     public boolean guardar() {
-        // TODO [Issue #1 - Integrante 1]: Imprimir un mensaje corto de guardado en el SGA y retornar true si notaFinal >= 0.
+        if (notaFinal >= 0) {
+            System.out.println("Acta de calificaciones guardada en el SGA.");
+            return true;
+        }
         return false;
     }
 
     @Override
     public String obtenerResumenPersistencia() {
-        // TODO [Issue #1 - Integrante 1]: Retornar un resumen breve indicando el registro almacenado.
-        return "PENDIENTE_RESUMEN";
+        return "Registro almacenado: Acta de " + estudiante
+                + " - Asignatura: " + asignatura;
     }
 }
